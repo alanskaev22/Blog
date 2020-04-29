@@ -1,8 +1,10 @@
 <%- include("partials/header") -%>
 
-<% posts.forEach(post => { %>
-    <h1> <%- post.postTitle -%> </h1>
-    <p class="textareaOutput"><%- post.postBody.substring(0, 1000) + " ... " -%></p>
+<% posts.slice().reverse().forEach(post => { %>
+    <h1 class="postTitle "> <%- post.postTitle -%> </h1>
+    <p class="postBody"><%- post.postBody.substring(0, 500) + "..." -%>
+        <a href="/posts/<%- post.postTitle -%>" class="btn btn-xs btn-dark">Read More</a>
+    </p>
 <% }) %>
 
 <%- include("partials/footer") -%>
