@@ -66,7 +66,7 @@ app.post(`/${routes.COMPOSE}`, (req, res) => {
     res.redirect(routes.DEFAULT);
 })
 
-// POST - GET
+// SINGLE POST - GET
 app.get("/posts/:postName", (req, res) => {
     const requestedTitle = req.params.postName.toLowerCase();
 
