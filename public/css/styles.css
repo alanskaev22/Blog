@@ -1,9 +1,17 @@
+:root {
+    --nav-main-col: #f0f0f0;
+    --bg-main-col: #f7f7f7;
+    --footer-col: #26191b;
+    --post-title-col: #26191b;
+}
+
 .container-fluid {
     padding-top: 70px;
     padding-bottom: 70px;
+
 }
 
-.container{
+.container {
     padding: 10px;
 }
 
@@ -16,37 +24,86 @@
     font-size: 12px;
     letter-spacing: 5px;
 }
+
 .navbar-nav li a:hover {
-    color: #1abc9c !important;
+    color: var(--footer-col) !important;
 }
 
-.footer-padding {
-	padding-bottom: 60px;
+.navbar-main {
+    background-color: var(--nav-main-col);
+    margin-bottom: 10px;
 }
+
 
 .footer {
-	position: absolute;
-	text-align: center;
-	bottom: 0;
-	width: 100%;
-	height: 60px;
-	background-color: #1abc9c;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 60px;
+    background-color: var(--footer-col);
 }
 
 .footer p {
-	margin-top: 25px;
-	font-size: 12px;
-  color: #fff;
+    margin-top: 24px;
+    font-size: 12px;
+    color: white;
 }
 
-.submit-btn{
-   margin-top: 20px;
+.submit-btn {
+    margin-top: 20px;
 }
 
-.textareaOutput {
+.postTitle {
+    color: var(--post-title-col);
+}
+
+.postBody {
     white-space: pre-wrap;
+    line-height: 2.5rem;
+    animation: fadein 2s;
+}
+
+.btn-group-xs > .btn, .btn-xs {
+    padding: .25rem .2rem;
+    font-size: .875rem;
+    line-height: 1;
+    border-radius: .2rem;
+}
+
+
+.brand-nav a:link, .brand-nav a:visited, .brand-nav a:hover, .brand-nav a:active {
+    text-decoration: none;
+    color: inherit;
+
+}
+
+.body-container {
+    min-height: 100%;
+}
+
+.footer-container {
+    margin: 100px 0 0 0;
+    padding:0;
+}
+
+html {
+    min-height: 100%;
 }
 
 label {
-    padding:5px;
+    padding: 5px;
+}
+
+body {
+    background-color: var(--bg-main-col);
+}
+
+@keyframes fadein {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
 }
