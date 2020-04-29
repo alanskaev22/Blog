@@ -32,6 +32,7 @@ app.use(express.static("public"));
 // HOME/DEFAULT - GET
 app.get(routes.DEFAULT, (req, res) => {
     res.render(routes.HOME, {homeStartingContent: homeStartingContent, posts:posts});
+
 });
 
 // HOME - GET
@@ -65,9 +66,17 @@ app.post(`/${routes.COMPOSE}`, (req, res) => {
     res.redirect(routes.DEFAULT);
 })
 
-
+// POST - GET
 app.get("/posts/:postName", (req, res) => {
-    console.log(req.params.postName)
+    const requestedTitle = req.params.postName.toLowerCase();
+
+    posts.forEach(post=>{
+        const storedTitle = post.postTitle.toLowerCase();
+
+        if (storedTitle === requestedTitle){
+            res.render(routes.POST, {postTitle: post.postTitle, postBody: post.postBody})
+        }
+    })
 });
 
 // LISTEN
