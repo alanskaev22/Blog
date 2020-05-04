@@ -2,6 +2,7 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const ejs = require("ejs");
 const mongoose = require("mongoose");
+const _ = require("lodash");
 
 const Schema = mongoose.Schema;
 const app = express();
@@ -64,7 +65,7 @@ app.get(routes.DEFAULT, (req, res) => {
         ;
 
     }));
-    res.render(routes.HOME, {homeStartingContent: homeStartingContent, posts: posts});
+    res.render(routes.HOME, {homeStartingContent: homeStartingContent, posts: _.uniqWith(posts, _.isEqual)});
 
 });
 
